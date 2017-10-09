@@ -27,7 +27,7 @@ function setupRestRoutes(app) {
   app.use('/', require(path.join(__dirname, './moduleOne')));
 
   app.use(function(req, res, next) {
-    var err = new Error('Resource not found');
+    const err = new Error('Resource not found');
     err.status = 404;
     return res.status(err.status).json({
       "error": err.message
@@ -35,7 +35,7 @@ function setupRestRoutes(app) {
   });
 
   app.use(function(err, req, res, next) {
-    logger.error("Internal error in watch processor: ", err);
+    console.log("Internal error in watch processor: ", err);
     return res.status(err.status || 500).json({
       "error": err.message
     });
