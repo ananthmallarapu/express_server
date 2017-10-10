@@ -1,3 +1,9 @@
 {
-   "favourites": []
+   "favourites": [
+      {
+         "placeName": "Mantri Square Mall",
+         "userComments": "update from angular 2",
+         "id": "ChIJoRKfACMWrjsRrWqiP9PBT5Y"
+      }
+   ]
 }

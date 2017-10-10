@@ -24,7 +24,7 @@ router.put('/favourites/:placeid?', (req, res) => {
   controller.updateData(req, (err, result) => {
     if (err) {
       res.status('500').send('cannot get to favourites');
-    } else { res.json('updated  succesfully'); }
+    } else { res.json(JSON.parse(result)); }
   });
 });
 router.delete('/favourites/:placeid?', (req, res) => {

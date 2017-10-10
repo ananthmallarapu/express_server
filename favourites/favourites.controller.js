@@ -73,6 +73,7 @@ const deleteData = function (req, callback) {
   });
 };
 const updateData = function (req, callback) {
+  let index;
   fs.readFile('./favourites/favourites.json', (err, data) => {
     try {
       if (err) {
@@ -81,7 +82,7 @@ const updateData = function (req, callback) {
       const obj = JSON.parse(data);
       console.log(obj);
       console.log(req.body);
-      const index = obj.favourites.find(element => (req.params.placeid === element.id));
+       index = obj.favourites.find(element => (req.params.placeid === element.id));
       const indexN = obj.favourites.indexOf(index);
       index.userComments = req.body.userComments;
 
@@ -100,7 +101,7 @@ const updateData = function (req, callback) {
       console.log(err);
       return callback(err, {});
     }
-    callback(null, {});
+    callback(null, JSON.stringify(index));
   });
 };
 
